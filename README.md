@@ -1,4 +1,4 @@
-# HistoROIBench
+# PFM_Representations
 
 A user-friendly toolkit for extracting ROI features from pathology images and running downstream evaluation.
 
@@ -8,7 +8,7 @@ A user-friendly toolkit for extracting ROI features from pathology images and ru
 
 ## What This Project Is For
 
-HistoROIBench helps you:
+PFM_Representations helps you:
 - extract ROI features into `.pt` files
 - compare foundation models on the same dataset
 - run downstream tasks such as Linear Probe, KNN, Proto, Few-shot, and Zero-shot
