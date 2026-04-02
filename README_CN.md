@@ -1,4 +1,4 @@
-# PFM_Representations
+# 🧪 PFM_Representations
 
 面向用户的病理 ROI 特征提取与评测工具。
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 这个项目能做什么
+## 🎯 这个项目能做什么
 
 PFM_Representations 可以帮助你：
 - 将 ROI 图像提取为 `.pt` 特征文件
@@ -21,9 +21,9 @@ PFM_Representations 可以帮助你：
 
 ---
 
-## 快速开始
+## 🚀 快速开始
 
-### 1）配置模型权重
+### 🧩 1）配置模型权重
 
 编辑 `model_utils/model_weights.json`：
 
@@ -39,7 +39,7 @@ PFM_Representations 可以帮助你：
 - 配置为空字符串 `""`：尝试从 Hugging Face 自动下载
 - 配置为本地路径：优先加载本地权重
 
-### 2）提取特征
+### 🛠️ 2）提取特征
 
 运行 `00-ROI_Feature_Extract.py`。
 
@@ -60,7 +60,7 @@ python 00-ROI_Feature_Extract.py \
   --save_dir ./ROI_Features
 ```
 
-### 3）运行评测
+### 📊 3）运行评测
 
 使用提取出的特征文件运行 `01-ROI_BenchMark_Main.py`：
 
@@ -76,7 +76,7 @@ python 01-ROI_BenchMark_Main.py \
 
 ---
 
-## 新参数重点说明（特征提取）
+## ⚙️ 新参数重点说明（特征提取）
 
 这些参数用于控制 **ViT 内部哪个位置的特征** 被导出。
 
@@ -102,7 +102,7 @@ python 01-ROI_BenchMark_Main.py \
   - `mean`：patch token 均值
   - `cls_mean`：CLS + patch 均值拼接
 
-### 参数耦合关系（重要）
+### 🔗 参数耦合关系（重要）
 
 - `block_index` 与 `block_indices` 互斥，只能二选一。
 - 两者都不传时，默认使用最后一个 block。
@@ -110,7 +110,7 @@ python 01-ROI_BenchMark_Main.py \
 
 ---
 
-## 输出文件命名规则
+## 🏷️ 输出文件命名规则
 
 特征文件会自动带上关键超参数：
 
@@ -122,21 +122,21 @@ Dataset_[{dataset}]_Model_[{model}]_HP_[FL-...__BI-...__BIS-...__FU-...__TP-..._
 
 ---
 
-## 常见用户用法
+## 📚 常见用户用法
 
-### A）单层提取
+### 🅰️ A）单层提取
 
 ```bash
 --feature_layer ln2 --block_index 12 --fusion mean --token_pool cls
 ```
 
-### B）多层融合
+### 🅱️ B）多层融合
 
 ```bash
 --feature_layer fc1 --block_indices 6 12 18 23 --fusion mean --token_pool mean
 ```
 
-### C）高维特征（维度更大）
+### 🆑 C）高维特征（维度更大）
 
 ```bash
 --feature_layer act --block_indices 8 16 24 31 --fusion concat --token_pool cls_mean
@@ -144,7 +144,7 @@ Dataset_[{dataset}]_Model_[{model}]_HP_[FL-...__BI-...__BIS-...__FU-...__TP-..._
 
 ---
 
-## 脚本说明
+## 📦 脚本说明
 
 - `00-ROI_Feature_Extract.py`：特征提取
 - `01-ROI_BenchMark_Main.py`：任务评测
@@ -152,7 +152,7 @@ Dataset_[{dataset}]_Model_[{model}]_HP_[FL-...__BI-...__BIS-...__FU-...__TP-..._
 
 ---
 
-## 注意事项
+## 📝 注意事项
 
 - `hoptimus1` 依赖 `timm==0.9.16`。
 - 部分 Hugging Face 模型可能是 gated，需要先申请权限。

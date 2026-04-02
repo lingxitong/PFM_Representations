@@ -1,4 +1,4 @@
-# HistoROIBench
+# 🧪 PFM_Representations
 
 A user-friendly toolkit for extracting ROI features from pathology images and running downstream evaluation.
 
@@ -6,9 +6,9 @@ A user-friendly toolkit for extracting ROI features from pathology images and ru
 
 ---
 
-## What This Project Is For
+## 🎯 What This Project Is For
 
-HistoROIBench helps you:
+PFM_Representations helps you:
 - extract ROI features into `.pt` files
 - compare foundation models on the same dataset
 - run downstream tasks such as Linear Probe, KNN, Proto, Few-shot, and Zero-shot
@@ -21,9 +21,9 @@ This repository is currently streamlined to **4 models**:
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
-### 1) Prepare model weights
+### 🧩 1) Prepare model weights
 
 Edit `model_utils/model_weights.json`:
 
@@ -39,7 +39,7 @@ Edit `model_utils/model_weights.json`:
 - Empty string (`""`) means auto-download from Hugging Face (if accessible).
 - A local path means loading from your local checkpoint.
 
-### 2) Extract features
+### 🛠️ 2) Extract features
 
 Run `00-ROI_Feature_Extract.py`.
 
@@ -60,7 +60,7 @@ python 00-ROI_Feature_Extract.py \
   --save_dir ./ROI_Features
 ```
 
-### 3) Run benchmark
+### 📊 3) Run benchmark
 
 Run `01-ROI_BenchMark_Main.py` with extracted feature files:
 
@@ -76,7 +76,7 @@ python 01-ROI_BenchMark_Main.py \
 
 ---
 
-## Feature Extraction Parameters (New)
+## ⚙️ Feature Extraction Parameters (New)
 
 These parameters control **which internal ViT representation** is exported.
 
@@ -102,7 +102,7 @@ These parameters control **which internal ViT representation** is exported.
   - `mean`: average patch tokens
   - `cls_mean`: concat CLS + patch mean
 
-### Important coupling rules
+### 🔗 Important coupling rules
 
 - `block_index` and `block_indices` are mutually exclusive.
 - If neither is set, the last block is used.
@@ -110,7 +110,7 @@ These parameters control **which internal ViT representation** is exported.
 
 ---
 
-## Output File Naming
+## 🏷️ Output File Naming
 
 Output filenames include key hyperparameters automatically:
 
@@ -122,21 +122,21 @@ This makes it easy to trace each feature file back to its extraction setup.
 
 ---
 
-## Typical User Recipes
+## 📚 Typical User Recipes
 
-### A) Single-layer extraction
+### 🅰️ A) Single-layer extraction
 
 ```bash
 --feature_layer ln2 --block_index 12 --fusion mean --token_pool cls
 ```
 
-### B) Multi-layer fusion
+### 🅱️ B) Multi-layer fusion
 
 ```bash
 --feature_layer fc1 --block_indices 6 12 18 23 --fusion mean --token_pool mean
 ```
 
-### C) High-capacity feature (larger dimension)
+### 🆑 C) High-capacity feature (larger dimension)
 
 ```bash
 --feature_layer act --block_indices 8 16 24 31 --fusion concat --token_pool cls_mean
@@ -144,7 +144,7 @@ This makes it easy to trace each feature file back to its extraction setup.
 
 ---
 
-## Included Scripts
+## 📦 Included Scripts
 
 - `00-ROI_Feature_Extract.py`: feature extraction
 - `01-ROI_BenchMark_Main.py`: benchmark tasks
@@ -152,7 +152,7 @@ This makes it easy to trace each feature file back to its extraction setup.
 
 ---
 
-## Notes
+## 📝 Notes
 
 - `hoptimus1` requires `timm==0.9.16`.
 - Some models are gated on Hugging Face and require access permission.
