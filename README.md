@@ -1,4 +1,4 @@
-# HistoROIBench
+# PFM_Representations
 
 A user-friendly toolkit for extracting ROI features from pathology images and running downstream evaluation.
 
